@@ -5,5 +5,7 @@
             "webdriverio/sync",
             "@wdio/mocha-framework"
         ]
-    }
+    },
+    "exclude": ["node_modules"]
 }
+
