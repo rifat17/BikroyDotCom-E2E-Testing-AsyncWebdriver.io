@@ -11,7 +11,7 @@ describe("Testing Bikroy.com", () => {
   afterEach(() => {
     browser.deleteAllCookies();
   });
-  xit("TC-001: Open Bikroy Site in Browser", async () => {
+  it("TC-001: Open Bikroy Site in Browser", async () => {
     await HomePage.open();
     const title = await browser.getTitle();
     expect(title).toEqual(
@@ -35,43 +35,43 @@ describe("Testing Bikroy.com", () => {
     expect(await browser.getUrl()).not.toHaveTextContaining("login");
   });
 
-  xit("TC-005 Show all ads", async () => {
+  it("TC-005 Show all ads", async () => {
     await AdsPage.open();
     const ads = await AdsPage.numOfAdsBeingShown();
     expect(ads).toBeGreaterThan(0);
   });
 
-  xit("TC-006 Show all urgent ads", async () => {
+  it("TC-006 Show all urgent ads", async () => {
     await AdsPage.open();
     const ads = await AdsPage.numOfUrgentAdsBeingShown();
     expect(ads).toBeGreaterThan(0);
   });
 
-  xit("TC-007 Display ads by Category 'Mobile'", async () => {
+  it("TC-007 Display ads by Category 'Mobile'", async () => {
     await AdsPage.open();
     const ads = await AdsPage.numOfAdsBeingShownInCategoryMobile();
     expect(ads).toBeGreaterThan(0);
   });
 
-  xit("TC-008 Display ads by Location 'Dhaka'", async () => {
+  it("TC-008 Display ads by Location 'Dhaka'", async () => {
     await AdsPage.open();
     const ads = await AdsPage.numOfAdsBeingShownInCategoryLocationDhaka();
     expect(ads).toBeGreaterThan(0);
   });
 
-  xit("TC-009 Ads Search", async () => {
+  it("TC-009 Ads Search", async () => {
     await AdsPage.open();
     const ads = await AdsPage.Search("Dell Laptop");
     browser.pause(2000);
   });
 
-  xit("TC-010 Search and count number of ads", async () => {
+  it("TC-010 Search and count number of ads", async () => {
     await AdsPage.open();
     const ads = await AdsPage.Search("Dell Laptop");
     expect(ads).toBeGreaterThan(0);
   });
 
-  xit("TC-011 Get lowest price", async () => {
+  it("TC-011 Get lowest price", async () => {
     await AdsPage.open();
     await AdsPage.Search("Dell Laptop");
     await browser.pause(2000);
@@ -80,7 +80,7 @@ describe("Testing Bikroy.com", () => {
     await ad.click();
   });
 
-  xit("TC-012 Get lowest price", async () => {
+  it("TC-012 Get lowest price", async () => {
     await AdsPage.open();
     await AdsPage.Search("Dell Laptop");
     await browser.pause(2000);
@@ -89,7 +89,7 @@ describe("Testing Bikroy.com", () => {
     await ad.click();
   });
 
-  xit("TC-013 Show to product details", async () => {
+  it("TC-013 Show to product details", async () => {
     await AdsPage.open();
     await AdsPage.Search("Dell Laptop");
     await browser.pause(2000);
@@ -100,7 +100,7 @@ describe("Testing Bikroy.com", () => {
     expect(title).not.toBeUndefined();
   });
 
-  xit("TC-014 Show phone number", async () => {
+  it("TC-014 Show phone number", async () => {
     await AdsPage.open();
     const ad = await AdsPage.getRandomAd(1); //first product
     await ad.click();
@@ -111,7 +111,7 @@ describe("Testing Bikroy.com", () => {
     await browser.pause(1000);
   });
 
-  xit("TC-015 Assert product description", async () => {
+  it("TC-015 Assert product description", async () => {
     await AdsPage.open();
     const ad = await AdsPage.getRandomAd(0); //first product
     await ad.click();
@@ -120,7 +120,7 @@ describe("Testing Bikroy.com", () => {
     await browser.pause(1000);
   });
 
-  xit("TC-016 Show to product details", async () => {
+  it("TC-016 Show to product details", async () => {
     await AdsPage.open();
     await AdsPage.Search("Dell Laptop");
     await browser.pause(2000);
@@ -131,7 +131,7 @@ describe("Testing Bikroy.com", () => {
     expect(title).not.toBeUndefined();
   });
 
-  xit("TC-018 Add product on Favorites", async () => {
+  it("TC-018 Add product on Favorites", async () => {
     await HomePage.open();
     await HomePage.clickLoginLink();
     await LoginPage.login("lowaci7232@threepp.com", "bikroy123456");
@@ -149,7 +149,7 @@ describe("Testing Bikroy.com", () => {
     await browser.pause(3000);
   });
 
-  xit("TC-019 Show to favorites product list", async () => {
+  it("TC-019 Show to favorites product list", async () => {
     await HomePage.open();
     await HomePage.clickLoginLink();
     await LoginPage.login("lowaci7232@threepp.com", "bikroy123456");
@@ -160,7 +160,7 @@ describe("Testing Bikroy.com", () => {
     expect(await MyAccountPage.favoriteHeadingText()).not.toBeUndefined();
   });
 
-  xit("TC-020 Assert Browse our top category", async () => {
+  it("TC-020 Assert Browse our top category", async () => {
     await HomePage.open();
     await HomePage.browseOurTopCategoryLinks();
   });
